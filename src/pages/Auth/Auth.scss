@@ -1,0 +1,71 @@
+.auth {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__input {
+    height: 56px;
+  }
+  &__access {
+    padding: calc(178px - 45px) 0px;
+    text-align: center;
+  }
+
+  &__icon-info {
+    & svg {
+      width: 60px;
+      height: 60px;
+    }
+    margin-bottom: 14px;
+  }
+  &__access-title {
+    font-size: 22px;
+    line-height: 25px;
+    color: #202002;
+  }
+  &__access-desc {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #202002;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
+  &__title {
+    margin-bottom: 7px;
+    font-size: 28px;
+    line-height: 33px;
+    color: #202002;
+    text-align: center;
+  }
+  &__desc {
+    margin-bottom: 50px;
+    color: #202002;
+    opacity: 0.5;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+  }
+  &__wrapper {
+    width: 430px;
+    margin: 0 auto;
+  }
+  &__button {
+    width: 100%;
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+  &__link-auth {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.114286px;
+    color: #adadad;
+    text-align: center;
+    display: block;
+    margin-top: 30px;
+  }
+}
