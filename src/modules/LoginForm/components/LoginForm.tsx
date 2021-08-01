@@ -4,8 +4,19 @@ import Button from "../../../Components/Button";
 import { Form, Input } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { FormikProps } from "formik";
+import { MyFormValues } from "../containers/LoginForm";
 
-const LoginForm = () => {
+const LoginForm: React.FC<FormikProps<MyFormValues>> = (props) => {
+  const {
+    touched,
+    errors,
+    isSubmitting,
+    values,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+  } = props;
   return (
     <div className="auth">
       <div className="auth__wrapper">
@@ -19,23 +30,43 @@ const LoginForm = () => {
           >
             <Form.Item
               name="username"
-              rules={[{ required: true, message: "Введите свой email" }]}
+              validateStatus={
+                touched.email ? (errors.email ? "error" : "success") : ""
+              }
+              help={touched.email ? (errors.email ? errors.email : null) : null}
             >
               <Input
+                id="email"
                 className="auth__input"
                 prefix={<MailOutlined className="site-form-item-icon" />}
                 placeholder="Email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
               />
             </Form.Item>
             <Form.Item
               name="password"
-              rules={[{ required: true, message: "Введите свой пароль" }]}
+              validateStatus={
+                touched.password ? (errors.password ? "error" : "success") : ""
+              }
+              help={
+                touched.password
+                  ? errors.password
+                    ? errors.password
+                    : null
+                  : null
+              }
             >
               <Input
+                id="password"
                 className="auth__input"
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Пароль"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
               />
             </Form.Item>
             <Form.Item>
