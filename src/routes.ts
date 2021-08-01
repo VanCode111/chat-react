@@ -4,7 +4,7 @@ import { FC } from "react";
 
 export interface routeType {
   path: string[] | string;
-  component: FC;
+  component: React.ComponentType;
 }
 
 export const pages: routeType[] = [
